@@ -6,10 +6,26 @@ import { MagicCard } from '@/components/magicui/magic-card';
 
 const features = [
   {
-    title: 'Color Palette generation',
+    title: 'Domain Availability Check',
+    description: 'Real-time checks across .com, .io, .co, and more. Find a name that actually has a home online.',
+    icon: <Search className="w-6 h-6 text-emerald-500" />,
+    colSpan: 'md:col-span-2',
+    bgClasses: 'bg-emerald-50/50',
+    borderClasses: 'border-emerald-100',
+  },
+  {
+    title: 'Trademark Risk Assessment',
+    description: 'AI-powered risk scoring (0-99%) using global brand indicators to protect your future.',
+    icon: <Zap className="w-6 h-6 text-indigo-500" />,
+    colSpan: 'md:col-span-1',
+    bgClasses: 'bg-indigo-50/50',
+    borderClasses: 'border-indigo-100',
+  },
+  {
+    title: 'Color Palettes',
     description: 'A curated 5-color palette that perfectly matches your brand vibe and emotional resonance.',
     icon: <Palette className="w-6 h-6 text-fuchsia-500" />,
-    colSpan: 'md:col-span-2',
+    colSpan: 'md:col-span-1',
     bgClasses: 'bg-fuchsia-50/50',
     borderClasses: 'border-fuchsia-100',
   },
@@ -30,18 +46,26 @@ const features = [
     borderClasses: 'border-sky-100',
   },
   {
-    title: 'Copy & SEO',
-    description: 'Website copy and SEO keywords structured for your landing page.',
-    icon: <Search className="w-6 h-6 text-rose-500" />,
+    title: 'SEO & Keywords',
+    description: 'Primary, secondary, and long-tail keywords structured for your landing page and organic search.',
+    icon: <Languages className="w-6 h-6 text-rose-500" />,
     colSpan: 'md:col-span-2',
     bgClasses: 'bg-rose-50/50',
     borderClasses: 'border-rose-100',
+  },
+  {
+    title: 'Website Copy',
+    description: 'Strategic hero text, taglines, and value props designed to convert visitors into customers.',
+    icon: <Search className="w-6 h-6 text-amber-500" />,
+    colSpan: 'md:col-span-1',
+    bgClasses: 'bg-amber-50/50',
+    borderClasses: 'border-amber-100',
   }
 ];
 
 export default function FeatureBento() {
   return (
-    <section className="py-24 px-4 bg-[#FDFDFD] relative">
+    <section className="py-24 px-4 md:px-8 bg-[#FDFDFD] relative">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <motion.h2 

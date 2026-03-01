@@ -2,6 +2,7 @@
 
 import SectionHeader from '@/components/ui/SectionHeader';
 import Card from '@/components/ui/Card';
+import CopyButton from '@/components/ui/CopyButton';
 import { text } from '@/constants/text';
 import { FontPairing as FontPairingType } from '@/lib/types';
 
@@ -24,26 +25,34 @@ export default function FontPairing({ fonts, brandName }: FontPairingProps) {
         rel="stylesheet"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card>
-          <div className="text-xs text-gray-500 mb-2">Heading Font</div>
-          <div className="text-sm text-indigo-400 mb-3">{fonts.heading}</div>
-          <div
-            className="text-3xl font-bold text-gray-900"
-            style={{ fontFamily: `'${fonts.heading}', sans-serif` }}
-          >
-            {brandName}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <Card className="flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Heading Font</div>
+            <CopyButton text={fonts.heading} label="Copy Name" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-3xl font-bold text-gray-900" style={{ fontFamily: fonts.heading }}>
+              {fonts.heading}
+            </span>
+            <p className="text-xl text-gray-600 leading-tight" style={{ fontFamily: fonts.heading }}>
+              The quick brown fox jumps over the lazy dog
+            </p>
           </div>
         </Card>
 
-        <Card>
-          <div className="text-xs text-gray-500 mb-2">Body Font</div>
-          <div className="text-sm text-indigo-400 mb-3">{fonts.body}</div>
-          <div
-            className="text-base text-gray-600 leading-relaxed"
-            style={{ fontFamily: `'${fonts.body}', sans-serif` }}
-          >
-            The quick brown fox jumps over the lazy dog. Your brand deserves typography that speaks volumes.
+        <Card className="flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Body Font</div>
+            <CopyButton text={fonts.body} label="Copy Name" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-3xl font-bold text-gray-900" style={{ fontFamily: fonts.body }}>
+              {fonts.body}
+            </span>
+            <p className="text-base text-gray-600 leading-relaxed" style={{ fontFamily: fonts.body }}>
+              The quick brown fox jumps over the lazy dog. Designers use this font to create a professional and clean look for their brand.
+            </p>
           </div>
         </Card>
       </div>

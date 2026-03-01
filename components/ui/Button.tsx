@@ -11,11 +11,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    'bg-gray-900 hover:bg-black text-white shadow-md hover:shadow-lg hover:shadow-gray-900/20 active:scale-[0.98]',
+    'bg-gray-900 hover:bg-black text-white shadow-xl hover:shadow-2xl hover:shadow-gray-900/10 active:scale-[0.97]',
   secondary:
-    'bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 active:scale-[0.98]',
+    'bg-white/80 backdrop-blur-md hover:bg-white text-gray-900 border border-gray-100 shadow-sm active:scale-[0.97]',
   ghost:
-    'bg-transparent hover:bg-gray-100 text-gray-500 hover:text-gray-900 active:scale-[0.98]',
+    'bg-transparent hover:bg-gray-100 text-gray-500 hover:text-gray-900 active:scale-[0.97]',
 };
 
 export default function Button({
@@ -28,8 +28,8 @@ export default function Button({
   return (
     <button
       className={`
-        inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
-        font-medium text-sm transition-all duration-200 cursor-pointer
+        inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-[20px]
+        font-bold text-base tracking-tight transition-all duration-300 cursor-pointer
         disabled:opacity-50 disabled:cursor-not-allowed
         ${variantStyles[variant]}
         ${fullWidth ? 'w-full' : ''}

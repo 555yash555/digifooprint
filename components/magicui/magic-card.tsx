@@ -47,7 +47,7 @@ export function MagicCard({
     <div
       ref={containerRef}
       className={cn(
-        "group relative flex overflow-hidden rounded-2xl bg-white/50 border border-gray-200 backdrop-blur-md transition-all hover:shadow-xl",
+        "group relative flex overflow-hidden rounded-2xl bg-white/40 border border-gray-100 backdrop-blur-md transition-all hover:shadow-lg",
         className
       )}
       {...props}

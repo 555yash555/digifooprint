@@ -21,7 +21,7 @@ export default function Cta() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6"
         >
           Stop debating names. <br />
           <SparklesText 
@@ -38,7 +38,7 @@ export default function Cta() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto"
         >
-          Unblock your creative process. Get the brand assets, copy, and SEO keywords you need to ship your idea today.
+          Stop wasting time on "taken" names. Get the domain availability, trademark risk reports, and brand assets you need to launch today.
         </motion.p>
 
         <motion.div

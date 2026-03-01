@@ -7,11 +7,12 @@ export async function generateBrandKit(
   industry: string,
   vibe: string,
   chosenName: string,
-  chosenDomain: string
+  chosenDomain: string,
+  trademarkStatus?: string
 ): Promise<BrandKit> {
   const response = await chatCompletion(
     brandKitPrompt.system,
-    brandKitPrompt.user(idea, industry, vibe, chosenName, chosenDomain)
+    brandKitPrompt.user(idea, industry, vibe, chosenName, chosenDomain, trademarkStatus)
   );
 
   // Parse JSON from response

@@ -14,12 +14,12 @@ export function TextInput({ label, className = '', ...props }: InputProps) {
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm text-gray-400 mb-2">{label}</label>
+        <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">{label}</label>
       )}
       <input
         className={`
           w-full px-5 py-4 rounded-xl bg-white/70 backdrop-blur-md border border-white/60
-          text-gray-900 placeholder-gray-400 text-sm shadow-sm ring-1 ring-black/5
+          text-gray-900 font-medium placeholder-gray-400 text-lg shadow-sm ring-1 ring-black/5
           focus:outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500
           transition-all duration-300 hover:bg-white/90
           ${className}
@@ -34,12 +34,12 @@ export function Textarea({ label, className = '', ...props }: TextareaProps) {
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm text-gray-400 mb-2">{label}</label>
+        <label className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-wide">{label}</label>
       )}
       <textarea
         className={`
           w-full px-5 py-4 rounded-xl bg-white/70 backdrop-blur-md border border-white/60
-          text-gray-900 placeholder-gray-400 text-sm resize-none shadow-sm ring-1 ring-black/5
+          text-gray-900 font-medium placeholder-gray-400 text-lg resize-none shadow-sm ring-1 ring-black/5
           focus:outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500
           transition-all duration-300 hover:bg-white/90
           ${className}

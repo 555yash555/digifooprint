@@ -17,7 +17,7 @@ export default function StepIdea({ value, onChange }: StepIdeaProps) {
         className="text-3xl font-bold text-gray-900 mb-3"
         colors={{ first: '#a855f7', second: '#3b82f6' }}
       />
-      <p className="text-sm text-gray-500 mb-6">
+      <p className="text-base font-medium text-gray-500 mb-8 leading-relaxed">
         {text.form.step1Subtitle}
       </p>
       <Textarea

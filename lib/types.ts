@@ -17,6 +17,8 @@ export interface DomainResult {
 export interface BrandName {
   name: string;
   domains: DomainResult[];
+  trademarkRisk?: number;
+  similarNames?: BrandName[];
 }
 
 // Names API response
@@ -70,6 +72,7 @@ export interface BrandRequest {
   vibe: string;
   chosenName: string;
   chosenDomain: string;
+  trademarkStatus?: string;
 }
 
 // Names API request

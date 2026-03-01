@@ -8,17 +8,17 @@ const steps = [
   {
     number: '01',
     title: 'Describe your idea',
-    description: 'Tell us what your business does, who it serves, and the general vibe you want. Just one sentence is enough.',
+    description: 'Tell us your industry and vibe. AI starts by brainstorming unique, catchy names tailormade for you.',
   },
   {
     number: '02',
-    title: 'AI processes the inputs',
-    description: 'We run thousands of combinations for names, check domain availability in real-time, and pair typography.',
+    title: 'Domain & Trademark Check',
+    description: 'We run real-time domain lookups and calculate a 0-99% Trademark Risk Score to ensure your brand is safe to build.',
   },
   {
     number: '03',
-    title: 'Download your brand kit',
-    description: 'Get a clean markdown file with your name, colors, fonts, SEO strategy, and logo prompts. Ready to build.',
+    title: 'Download Brand Assets',
+    description: 'Get a clean bundle of colors, fonts, SEO copy, and your safety reports. Ready to launch.',
   }
 ];
 

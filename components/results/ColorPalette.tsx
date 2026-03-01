@@ -28,26 +28,26 @@ export default function ColorPalette({ colors }: ColorPaletteProps) {
       />
 
       {/* Swatch strip */}
-      <div className="flex rounded-xl overflow-hidden h-20 mb-4">
+      <div className="flex rounded-[24px] overflow-hidden h-24 mb-8 shadow-xl border-4 border-white">
         {entries.map(([, hex]) => (
           <div
             key={hex}
-            className="flex-1"
+            className="flex-1 transition-transform hover:scale-105"
             style={{ backgroundColor: hex }}
           />
         ))}
       </div>
 
       {/* Color details */}
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
         {entries.map(([key, hex]) => (
-          <div key={key} className="text-center">
+          <div key={key} className="group">
             <div
-              className="w-full aspect-square rounded-xl mb-2 border border-[#2A2A2D]"
+              className="w-full aspect-square rounded-2xl mb-3 border border-gray-100 shadow-sm transition-all group-hover:shadow-md group-hover:scale-[1.02]"
               style={{ backgroundColor: hex }}
             />
-            <div className="text-xs text-gray-500 mb-1">{colorLabels[key]}</div>
-            <CopyButton text={hex} label={hex} className="text-[10px]" />
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{colorLabels[key]}</div>
+            <CopyButton text={hex} label={hex} className="text-sm font-bold text-gray-900" />
           </div>
         ))}
       </div>

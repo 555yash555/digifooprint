@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateNames } from '@/lib/generators/names';
 import { checkDomainsForName } from '@/lib/generators/domain-check';
+import { checkTrademarkRisk } from '@/lib/generators/trademark-check';
 import { NamesRequest, BrandName } from '@/lib/types';
 
 const MAX_RETRIES = 3;
@@ -21,7 +22,8 @@ async function generateAndCheckNames(
   const namesWithDomains: BrandName[] = await Promise.all(
     names.map(async (name) => {
       const domains = await checkDomainsForName(name);
-      return { name, domains };
+      const trademarkRisk = await checkTrademarkRisk(name, domains);
+      return { name, domains, trademarkRisk };
     })
   );
 

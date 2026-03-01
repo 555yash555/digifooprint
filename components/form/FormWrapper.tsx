@@ -48,23 +48,23 @@ export default function FormWrapper() {
   };
 
   return (
-    <div className="h-screen flex flex-col relative overflow-hidden bg-gray-50">
+    <div className="h-[100dvh] flex flex-col relative overflow-hidden bg-gray-50">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
       <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-sky-400/40 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
       <div className="absolute bottom-40 right-1/4 w-[500px] h-[500px] bg-fuchsia-400/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
       <RetroGrid className="z-0 opacity-60" />
       
-      <div className="flex flex-col max-w-2xl mx-auto w-full flex-1 relative z-10 h-full">
+      <div className="flex flex-col max-w-2xl mx-auto w-full flex-1 relative z-10 overflow-hidden">
         {/* Fixed Header */}
-        <div className="px-6 pt-12 pb-4 shrink-0">
+        <div className="px-6 pt-4 sm:pt-12 pb-2 shrink-0">
           <ProgressBar currentStep={step} totalSteps={TOTAL_STEPS} />
         </div>
 
         {/* Scrollable Form Content */}
-        <div className="flex-1 overflow-y-auto px-6 pb-20 scrollbar-hide">
-          <div className="flex items-center min-h-full py-4">
-            <MagicCard gradientColor="#c7d2fe" gradientOpacity={0.25} className="w-full transition-all duration-300 !bg-white/60 shadow-2xl border-white/80 !backdrop-blur-2xl rounded-[40px] px-8 py-12">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 scrollbar-hide flex flex-col justify-center">
+          <div className="py-2 sm:py-6">
+            <MagicCard gradientColor="#c7d2fe" gradientOpacity={0.25} className="w-full transition-all duration-300 !bg-white/60 shadow-2xl border-white/80 !backdrop-blur-2xl rounded-[30px] sm:rounded-[40px] px-4 py-4 sm:px-8 sm:py-8">
               {step === 0 && <StepIdea value={idea} onChange={setIdea} />}
               {step === 1 && <StepIndustry value={industry} onChange={setIndustry} />}
               {step === 2 && <StepVibe value={vibe} onChange={setVibe} />}
@@ -73,8 +73,8 @@ export default function FormWrapper() {
           </div>
         </div>
 
-        {/* Fixed Footer */}
-        <div className="shrink-0 flex justify-between gap-4 px-6 pt-6 pb-12 bg-gradient-to-t from-gray-50 via-gray-50/90 to-transparent z-30 relative mt-[-20px]">
+        {/* Fixed Footer - Absolutely Pinned */}
+        <div className="shrink-0 flex justify-between gap-4 px-6 pt-4 pb-6 sm:pb-12 bg-white/40 backdrop-blur-md border-t border-gray-100/50 z-30">
           <Button
             variant="ghost"
             onClick={handleBack}

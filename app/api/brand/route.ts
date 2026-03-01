@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate full brand kit via GPT-4
-    const kit = await generateBrandKit(idea, industry, vibe, chosenName, chosenDomain);
+    const kit = await generateBrandKit(idea, industry, vibe, chosenName, chosenDomain, body.trademarkStatus);
 
     return NextResponse.json(kit);
   } catch (error) {

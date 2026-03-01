@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
+import { Outfit, Inter } from 'next/font/google';
 import './globals.css';
 
-const plusJakarta = Plus_Jakarta_Sans({
+const outfit = Outfit({
   variable: '--font-heading',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 });
 
 const inter = Inter({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${plusJakarta.variable} ${inter.variable} font-sans bg-gray-50 text-gray-900 antialiased selection:bg-indigo-500/30`}
+        className={`${outfit.variable} ${inter.variable} font-sans bg-gray-50 text-gray-900 antialiased selection:bg-indigo-500/30`}
       >
         {children}
       </body>

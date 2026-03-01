@@ -23,9 +23,9 @@ export default function Card({
       className={cn(
         "rounded-2xl border p-5 transition-all duration-300 h-full !flex-col !items-start",
         selected
-          ? 'border-indigo-500 ring-2 ring-indigo-500 bg-indigo-50/90 shadow-lg shadow-indigo-500/25 scale-[1.02]'
-          : 'border-gray-200 bg-white/60 shadow-sm',
-        hoverable && !selected ? 'hover:border-indigo-300 hover:bg-white/90 hover:shadow-md cursor-pointer' : '',
+          ? 'border-indigo-500/40 bg-indigo-50/60 shadow-[0_8px_30px_rgb(79,70,229,0.12)] scale-[1.01] ring-1 ring-indigo-500/30'
+          : 'border-gray-100/70 bg-white/60 shadow-sm',
+        hoverable && !selected ? 'hover:border-indigo-200/50 hover:bg-white/80 hover:shadow-md cursor-pointer' : '',
         className
       )}
       {...props as any}

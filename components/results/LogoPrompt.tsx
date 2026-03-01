@@ -17,13 +17,19 @@ export default function LogoPrompt({ prompt }: LogoPromptProps) {
         description={text.results.logo.description}
       />
 
-      <Card>
-        <div className="flex justify-between items-start gap-4">
-          <p className="text-sm text-gray-700 leading-relaxed flex-1 whitespace-pre-wrap">
-            {prompt}
+      <Card className="relative overflow-hidden group">
+        <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">AI Visual Prompt</div>
+        <div className="flex items-start gap-4">
+          <p className="text-lg font-medium text-gray-700 leading-relaxed italic">
+            "{prompt}"
           </p>
-          <CopyButton text={prompt} label="Copy" />
+          <div className="flex-shrink-0 pt-1">
+            <CopyButton text={prompt} />
+          </div>
         </div>
+        
+        {/* Subtle decorative element */}
+        <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-indigo-500/5 rounded-full blur-2xl group-hover:bg-indigo-500/10 transition-colors" />
       </Card>
     </div>
   );
