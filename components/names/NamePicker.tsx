@@ -9,22 +9,22 @@ import { BrandName } from '@/lib/types';
 
 interface NamePickerProps {
   names: BrandName[];
+  onRegenerate: () => void;
 }
 
-export default function NamePicker({ names }: NamePickerProps) {
+export default function NamePicker({ names, onRegenerate }: NamePickerProps) {
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const handleContinue = () => {
     if (selectedIndex === null) return;
     const chosen = names[selectedIndex];
-    // Find first available domain or default to .com
     const availableDomain = chosen.domains.find((d) => d.available)?.domain
       || `${chosen.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`;
 
     sessionStorage.setItem(
       'digifootprint-name',
-      JSON.stringify({ chosenName: chosen.name, chosenDomain: availableDomain })
+      JSON.stringify({ chosenName: chosen.name, chosenDomain: availableDomain, domains: chosen.domains })
     );
     router.push('/results');
   };
@@ -32,7 +32,7 @@ export default function NamePicker({ names }: NamePickerProps) {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-100">{text.names.title}</h1>
+        <h1 className="text-3xl font-bold text-gray-900">{text.names.title}</h1>
         <p className="text-gray-500 mt-2">{text.names.subtitle}</p>
       </div>
 
@@ -47,7 +47,16 @@ export default function NamePicker({ names }: NamePickerProps) {
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <Button
+          variant="ghost"
+          onClick={onRegenerate}
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Generate more names
+        </Button>
         <Button
           onClick={handleContinue}
           disabled={selectedIndex === null}

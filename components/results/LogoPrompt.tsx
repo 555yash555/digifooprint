@@ -19,7 +19,7 @@ export default function LogoPrompt({ prompt }: LogoPromptProps) {
 
       <Card>
         <div className="flex justify-between items-start gap-4">
-          <p className="text-sm text-gray-300 leading-relaxed flex-1 whitespace-pre-wrap">
+          <p className="text-sm text-gray-700 leading-relaxed flex-1 whitespace-pre-wrap">
             {prompt}
           </p>
           <CopyButton text={prompt} label="Copy" />

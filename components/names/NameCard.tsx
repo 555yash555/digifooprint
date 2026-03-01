@@ -13,7 +13,7 @@ interface NameCardProps {
 export default function NameCard({ brandName, selected, onClick }: NameCardProps) {
   return (
     <Card selected={selected} hoverable onClick={onClick} className="p-6">
-      <h3 className="text-2xl font-bold text-gray-100 mb-4">{brandName.name}</h3>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4">{brandName.name}</h3>
       <div className="flex flex-wrap gap-2">
         {brandName.domains.map((d) => (
           <Badge

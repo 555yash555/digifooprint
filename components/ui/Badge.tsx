@@ -12,11 +12,11 @@ export default function Badge({ available, domain, registerUrl }: BadgeProps) {
       className={`
         inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium
         ${available
-          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-          : 'bg-red-500/10 text-red-400/60 border border-red-500/10'}
+          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm'
+          : 'bg-red-50 text-red-600 border border-red-200 shadow-sm'}
       `}
     >
-      <span className={`w-1.5 h-1.5 rounded-full ${available ? 'bg-emerald-400' : 'bg-red-400/60'}`} />
+      <span className={`w-1.5 h-1.5 rounded-full ${available ? 'bg-emerald-500' : 'bg-red-400'}`} />
       {domain}
     </span>
   );

@@ -1,40 +1,49 @@
-export const vibes = [
+import { Square, Zap, Smile, Building2, Gem, Rocket } from 'lucide-react';
+
+export interface Vibe {
+  id: string;
+  label: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+export const vibes: Vibe[] = [
   {
     id: 'minimal',
     label: 'Minimal',
     description: 'Clean lines, whitespace, understated elegance',
-    icon: '◻️',
+    icon: Square,
   },
   {
     id: 'bold',
     label: 'Bold',
     description: 'Strong colors, big type, high impact',
-    icon: '⚡',
+    icon: Zap,
   },
   {
     id: 'playful',
     label: 'Playful',
     description: 'Fun, colorful, approachable and friendly',
-    icon: '🎈',
+    icon: Smile,
   },
   {
     id: 'corporate',
     label: 'Corporate',
     description: 'Professional, trustworthy, established',
-    icon: '🏢',
+    icon: Building2,
   },
   {
     id: 'luxury',
     label: 'Luxury',
     description: 'Premium, sophisticated, exclusive feel',
-    icon: '✨',
+    icon: Gem,
   },
   {
     id: 'techy',
     label: 'Techy',
     description: 'Modern, innovative, developer-friendly',
-    icon: '🚀',
+    icon: Rocket,
   },
-] as const;
+];
 
-export type VibeId = (typeof vibes)[number]['id'];
+export type VibeId = typeof vibes[number]['id'];

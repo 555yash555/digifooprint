@@ -29,7 +29,7 @@ export default function FontPairing({ fonts, brandName }: FontPairingProps) {
           <div className="text-xs text-gray-500 mb-2">Heading Font</div>
           <div className="text-sm text-indigo-400 mb-3">{fonts.heading}</div>
           <div
-            className="text-3xl font-bold text-gray-100"
+            className="text-3xl font-bold text-gray-900"
             style={{ fontFamily: `'${fonts.heading}', sans-serif` }}
           >
             {brandName}
@@ -40,7 +40,7 @@ export default function FontPairing({ fonts, brandName }: FontPairingProps) {
           <div className="text-xs text-gray-500 mb-2">Body Font</div>
           <div className="text-sm text-indigo-400 mb-3">{fonts.body}</div>
           <div
-            className="text-base text-gray-300 leading-relaxed"
+            className="text-base text-gray-600 leading-relaxed"
             style={{ fontFamily: `'${fonts.body}', sans-serif` }}
           >
             The quick brown fox jumps over the lazy dog. Your brand deserves typography that speaks volumes.

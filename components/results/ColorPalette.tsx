@@ -46,7 +46,7 @@ export default function ColorPalette({ colors }: ColorPaletteProps) {
               className="w-full aspect-square rounded-xl mb-2 border border-[#2A2A2D]"
               style={{ backgroundColor: hex }}
             />
-            <div className="text-xs text-gray-400 mb-1">{colorLabels[key]}</div>
+            <div className="text-xs text-gray-500 mb-1">{colorLabels[key]}</div>
             <CopyButton text={hex} label={hex} className="text-[10px]" />
           </div>
         ))}

@@ -24,8 +24,8 @@ export default function CopyButton({ text, label = 'Copy', className = '' }: Cop
         inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
         transition-all duration-200 cursor-pointer
         ${copied
-          ? 'bg-emerald-500/20 text-emerald-400'
-          : 'bg-[#1C1C1E] text-gray-400 hover:text-gray-200 hover:bg-[#2A2A2D]'}
+          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+          : 'bg-white border border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50 shadow-sm'}
         ${className}
       `}
     >

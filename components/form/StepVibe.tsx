@@ -3,6 +3,7 @@
 import Card from '@/components/ui/Card';
 import { vibes } from '@/constants/vibes';
 import { text } from '@/constants/text';
+import { SparklesText } from '@/components/magicui/sparkles-text';
 
 interface StepVibeProps {
   value: string;
@@ -12,9 +13,11 @@ interface StepVibeProps {
 export default function StepVibe({ value, onChange }: StepVibeProps) {
   return (
     <div className="w-full max-w-lg mx-auto">
-      <h2 className="text-2xl font-bold text-gray-100 mb-2">
-        {text.form.step3Title}
-      </h2>
+      <SparklesText 
+        text={text.form.step3Title} 
+        className="text-3xl font-bold text-gray-900 mb-3"
+        colors={{ first: '#10b981', second: '#6366f1' }}
+      />
       <p className="text-sm text-gray-500 mb-6">
         {text.form.step3Subtitle}
       </p>
@@ -27,8 +30,10 @@ export default function StepVibe({ value, onChange }: StepVibeProps) {
             onClick={() => onChange(vibe.id)}
             className="text-center"
           >
-            <div className="text-2xl mb-2">{vibe.icon}</div>
-            <div className="font-semibold text-gray-200 text-sm">{vibe.label}</div>
+            <div className="text-2xl mb-4 flex justify-center text-gray-400 group-hover:text-indigo-500 transition-colors">
+              <vibe.icon className="w-8 h-8" />
+            </div>
+            <div className="font-semibold text-gray-900 text-sm">{vibe.label}</div>
             <div className="text-xs text-gray-500 mt-1">{vibe.description}</div>
           </Card>
         ))}

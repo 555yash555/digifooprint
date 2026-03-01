@@ -1,35 +1,24 @@
+import dns from 'dns/promises';
 import { DomainResult } from '../types';
 
 export async function checkDomain(name: string, tld: string): Promise<DomainResult> {
   const domain = `${name.toLowerCase().replace(/[^a-z0-9]/g, '')}${tld}`;
 
   try {
-    const response = await fetch(
-      `https://domainr.p.rapidapi.com/v2/status?domain=${domain}`,
-      {
-        headers: {
-          'X-RapidAPI-Key': process.env.DOMAINR_API_KEY || '',
-          'X-RapidAPI-Host': 'domainr.p.rapidapi.com',
-        },
-      }
-    );
-
-    if (!response.ok) {
-      return { domain, available: false };
+    // Try resolving DNS records — if it resolves, domain is taken
+    await dns.resolve(domain);
+    return { domain, available: false };
+  } catch (err: unknown) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === 'ENOTFOUND' || code === 'ENODATA') {
+      // No DNS records — likely available
+      return {
+        domain,
+        available: true,
+        registerUrl: `https://www.namecheap.com/domains/registration/results/?domain=${domain}`,
+      };
     }
-
-    const data = await response.json();
-    const status = data?.status?.[0]?.status || '';
-    // Domainr statuses: "undelegated" = available, "active" = taken
-    const available = status.includes('undelegated') || status.includes('inactive');
-
-    return {
-      domain,
-      available,
-      registerUrl: available ? `https://www.namecheap.com/domains/registration/results/?domain=${domain}` : undefined,
-    };
-  } catch {
-    // If API fails, mark as unknown/unavailable
+    // Other DNS errors — can't determine, mark as unknown
     return { domain, available: false };
   }
 }

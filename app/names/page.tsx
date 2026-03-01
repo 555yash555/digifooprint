@@ -1,54 +1,61 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Loader from '@/components/ui/Loader';
 import NamePicker from '@/components/names/NamePicker';
 import { text } from '@/constants/text';
 import { BrandName, FormData } from '@/lib/types';
+import RetroGrid from '@/components/magicui/retro-grid';
 
 export default function NamesPage() {
   const router = useRouter();
   const [names, setNames] = useState<BrandName[] | null>(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchNames = useCallback(async () => {
     const raw = sessionStorage.getItem('digifootprint-form');
     if (!raw) {
       router.push('/create');
       return;
     }
 
-    const formData: FormData = JSON.parse(raw);
+    setNames(null);
+    setLoading(true);
+    setError(null);
 
-    async function fetchNames() {
-      try {
-        const res = await fetch('/api/names', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
+    try {
+      const formData: FormData = JSON.parse(raw);
+      const res = await fetch('/api/names', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-        if (!res.ok) throw new Error('Failed to generate names');
+      if (!res.ok) throw new Error('Failed to generate names');
 
-        const data = await res.json();
-        setNames(data.names);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Something went wrong');
-      }
+      const data = await res.json();
+      setNames(data.names);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+    } finally {
+      setLoading(false);
     }
-
-    fetchNames();
   }, [router]);
+
+  useEffect(() => {
+    fetchNames();
+  }, [fetchNames]);
 
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center">
-          <p className="text-red-400 mb-4">{error}</p>
+          <p className="text-red-600 mb-4 font-medium">{error}</p>
           <button
             onClick={() => router.push('/create')}
-            className="text-indigo-400 hover:text-indigo-300 text-sm"
+            className="text-indigo-600 hover:text-indigo-500 font-medium text-sm"
           >
             Go back and try again
           </button>
@@ -57,7 +64,7 @@ export default function NamesPage() {
     );
   }
 
-  if (!names) {
+  if (loading || !names) {
     return (
       <Loader
         message={text.names.loading}
@@ -72,8 +79,15 @@ export default function NamesPage() {
   }
 
   return (
-    <div className="min-h-screen px-6 py-16">
-      <NamePicker names={names} />
+    <div className="min-h-screen px-6 py-16 relative overflow-hidden bg-[#FDFDFD]">
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-sky-400/10 rounded-full blur-[80px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute bottom-40 right-1/4 w-[500px] h-[500px] bg-fuchsia-400/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
+      <RetroGrid className="z-0 opacity-40" />
+      <div className="relative z-10 max-w-3xl mx-auto">
+        <NamePicker names={names} onRegenerate={fetchNames} />
+      </div>
     </div>
   );
 }

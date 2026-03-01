@@ -18,10 +18,10 @@ export function TextInput({ label, className = '', ...props }: InputProps) {
       )}
       <input
         className={`
-          w-full px-4 py-3 rounded-xl bg-[#1C1C1E] border border-[#2A2A2D]
-          text-gray-200 placeholder-gray-600 text-sm
-          focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-          transition-colors duration-200
+          w-full px-5 py-4 rounded-xl bg-white/70 backdrop-blur-md border border-white/60
+          text-gray-900 placeholder-gray-400 text-sm shadow-sm ring-1 ring-black/5
+          focus:outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500
+          transition-all duration-300 hover:bg-white/90
           ${className}
         `}
         {...props}
@@ -38,10 +38,10 @@ export function Textarea({ label, className = '', ...props }: TextareaProps) {
       )}
       <textarea
         className={`
-          w-full px-4 py-3 rounded-xl bg-[#1C1C1E] border border-[#2A2A2D]
-          text-gray-200 placeholder-gray-600 text-sm resize-none
-          focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
-          transition-colors duration-200
+          w-full px-5 py-4 rounded-xl bg-white/70 backdrop-blur-md border border-white/60
+          text-gray-900 placeholder-gray-400 text-sm resize-none shadow-sm ring-1 ring-black/5
+          focus:outline-none focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500
+          transition-all duration-300 hover:bg-white/90
           ${className}
         `}
         rows={5}

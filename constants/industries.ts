@@ -1,12 +1,21 @@
-export const industries = [
-  { id: 'tech', label: 'Tech', icon: '💻' },
-  { id: 'health', label: 'Health', icon: '🏥' },
-  { id: 'travel', label: 'Travel', icon: '✈️' },
-  { id: 'finance', label: 'Finance', icon: '💰' },
-  { id: 'creative', label: 'Creative', icon: '🎨' },
-  { id: 'food', label: 'Food', icon: '🍕' },
-  { id: 'education', label: 'Education', icon: '📚' },
-  { id: 'other', label: 'Other', icon: '🔮' },
-] as const;
+import { Laptop, Activity, Plane, Wallet, Paintbrush, Pizza, BookOpen, Sparkles } from 'lucide-react';
+import { ReactNode } from 'react';
 
-export type IndustryId = (typeof industries)[number]['id'];
+export interface Industry {
+  id: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+export const industries: Industry[] = [
+  { id: 'tech', label: 'Tech', icon: Laptop },
+  { id: 'health', label: 'Health', icon: Activity },
+  { id: 'travel', label: 'Travel', icon: Plane },
+  { id: 'finance', label: 'Finance', icon: Wallet },
+  { id: 'creative', label: 'Creative', icon: Paintbrush },
+  { id: 'food', label: 'Food', icon: Pizza },
+  { id: 'education', label: 'Education', icon: BookOpen },
+  { id: 'other', label: 'Other', icon: Sparkles },
+];
+
+export type IndustryId = typeof industries[number]['id'];
