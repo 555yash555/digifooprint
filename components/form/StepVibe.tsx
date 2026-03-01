@@ -30,11 +30,11 @@ export default function StepVibe({ value, onChange }: StepVibeProps) {
             onClick={() => onChange(vibe.id)}
             className="text-center"
           >
-            <div className="text-2xl mb-4 flex justify-center text-gray-400 group-hover:text-indigo-500 transition-colors">
+            <div className={`text-2xl mb-4 flex justify-center transition-colors ${value === vibe.id ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-500'}`}>
               <vibe.icon className="w-8 h-8" />
             </div>
-            <div className="font-semibold text-gray-900 text-sm">{vibe.label}</div>
-            <div className="text-xs text-gray-500 mt-1">{vibe.description}</div>
+            <div className={`font-semibold text-sm transition-colors ${value === vibe.id ? 'text-indigo-900' : 'text-gray-900'}`}>{vibe.label}</div>
+            <div className={`text-xs mt-1 transition-colors ${value === vibe.id ? 'text-indigo-700' : 'text-gray-500'}`}>{vibe.description}</div>
           </Card>
         ))}
       </div>

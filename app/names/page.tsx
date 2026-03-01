@@ -79,13 +79,13 @@ export default function NamesPage() {
   }
 
   return (
-    <div className="min-h-screen px-6 py-16 relative overflow-hidden bg-[#FDFDFD]">
+    <div className="h-screen flex flex-col relative overflow-hidden bg-gray-50">
       {/* Background Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-sky-400/10 rounded-full blur-[80px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute bottom-40 right-1/4 w-[500px] h-[500px] bg-fuchsia-400/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
-      <RetroGrid className="z-0 opacity-40" />
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-sky-400/40 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute bottom-40 right-1/4 w-[500px] h-[500px] bg-fuchsia-400/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
+      <RetroGrid className="z-0 opacity-60" />
+      <div className="relative z-10 h-full flex flex-col w-full py-8">
         <NamePicker names={names} onRegenerate={fetchNames} />
       </div>
     </div>

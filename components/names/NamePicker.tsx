@@ -30,24 +30,26 @@ export default function NamePicker({ names, onRegenerate }: NamePickerProps) {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div className="text-center mb-8">
+    <div className="w-full h-full flex flex-col mx-auto relative px-4">
+      <div className="text-center mb-6 shrink-0 z-20">
         <h1 className="text-3xl font-bold text-gray-900">{text.names.title}</h1>
         <p className="text-gray-500 mt-2">{text.names.subtitle}</p>
       </div>
 
-      <div className="grid gap-4">
-        {names.map((brandName, i) => (
-          <NameCard
-            key={brandName.name}
-            brandName={brandName}
-            selected={selectedIndex === i}
-            onClick={() => setSelectedIndex(i)}
-          />
-        ))}
+      <div className="flex-1 overflow-y-auto px-2 pb-12 z-10 w-full max-w-3xl mx-auto scrollbar-hide">
+        <div className="grid gap-4">
+          {names.map((brandName, i) => (
+            <NameCard
+              key={brandName.name}
+              brandName={brandName}
+              selected={selectedIndex === i}
+              onClick={() => setSelectedIndex(i)}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div className="shrink-0 flex flex-col sm:flex-row items-center justify-center gap-3 bg-gradient-to-t from-gray-50 via-gray-50/90 to-transparent pt-10 pb-4 mt-[-20px] z-30 relative w-full">
         <Button
           variant="ghost"
           onClick={onRegenerate}
@@ -60,7 +62,7 @@ export default function NamePicker({ names, onRegenerate }: NamePickerProps) {
         <Button
           onClick={handleContinue}
           disabled={selectedIndex === null}
-          className="text-base px-8 py-4"
+          className="text-base px-8 py-4 shadow-xl shadow-indigo-500/20"
         >
           {text.names.cta}
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

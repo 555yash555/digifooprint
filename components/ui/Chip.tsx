@@ -15,10 +15,10 @@ export default function Chip({ label, icon: Icon, selected = false, onClick }: C
       onClick={onClick}
       className={`
         inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium
-        transition-all duration-200 cursor-pointer
+        transition-all duration-300 cursor-pointer
         ${selected
-          ? 'bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-sm shadow-indigo-100'
-          : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300 hover:text-gray-900 hover:bg-gray-50 shadow-sm'}
+          ? 'bg-indigo-500 text-white border-transparent ring-2 ring-indigo-500 shadow-md shadow-indigo-500/30 scale-[1.05]'
+          : 'bg-white/80 backdrop-blur-sm text-gray-600 border border-gray-200 hover:border-indigo-300 hover:text-gray-900 hover:bg-white shadow-sm'}
       `}
     >
       {Icon && <Icon className="w-4 h-4 opacity-70" />}
